@@ -57,4 +57,20 @@ collections:
           widget: "image",
           required: false,
         }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Body", name: "body", widget: "markdown", default: "markdown" }
+  - name: "Boolean"
+    label: "Boolean"
+    folder: "boolean"
+    slug: "{{slug}}"
+    file: "boolean/{{slug}}.mdx"
+    create: true
+    extension: mdx
+    format: frontmatter
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - {
+          label: "Complete",
+          name: "complete",
+          widget: "boolean",
+          default: true,
+        }
