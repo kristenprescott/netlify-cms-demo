@@ -1,3 +1,4 @@
+local_backend: true
 backend:
   name: git-gateway
   branch: main
@@ -14,13 +15,25 @@ collections:
         create: true
         file: "_data/copy.json"
         fields:
-          - { label: "Tagline", name: "tagline", widget: "string" }
           - { label: "Headline", name: "headline", widget: "string" }
-  - name: "standalone-pages"
-    label: "Standalone-Pages"
+          - { label: "Tagline", name: "tagline", widget: "string" }
+  - name: "Photos"
+    label: "Photoz"
+    folder: "photos"
+    slug: "{{slug}}"
+    file: "photos/{{slug}}.mdx"
+    create: true
+    extension: mdx
+    format: frontmatter
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+  - name: "Standalone Pages"
+    label: "Standalone Pages"
     folder: "standalone-pages"
-    slug: ""
-    file: "standalone-pages/.mdx"
+    slug: "{{slug}}"
+    file: "standalone-pages/{{slug}}.mdx"
     create: true
     extension: mdx
     format: frontmatter

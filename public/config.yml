@@ -17,8 +17,20 @@ collections:
         fields:
           - { label: "Headline", name: "headline", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "string" }
-  - name: "standalone-pages"
-    label: "Standalone-Pages"
+  - name: "Photos"
+    label: "Photos"
+    folder: "photos"
+    slug: "{{slug}}"
+    file: "photos/{{slug}}.mdx"
+    create: true
+    extension: mdx
+    format: frontmatter
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+  - name: "Standalone Pages"
+    label: "Standalone Pages"
     folder: "standalone-pages"
     slug: "{{slug}}"
     file: "standalone-pages/{{slug}}.mdx"
