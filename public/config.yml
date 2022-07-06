@@ -6,6 +6,61 @@ publish_mode: editorial_workflow
 media_folder: "public/images"
 public_folder: "/images"
 collections: # A list of collections the CMS should be able to edit
+  - label: "Globals"
+    name: "globals"
+    files:
+      - label: "Site Copy"
+        name: "site_copy"
+        delete: false
+        create: true
+        file: "_data/copy.json"
+        fields:
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+
+  - name: "Photos"
+    label: "Photos"
+    folder: "photos"
+    slug: "{{slug}}"
+    file: "photos/{{slug}}.mdx"
+    create: true
+    extension: mdx
+    format: frontmatter
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+
+  - name: "Standalone Pages"
+    label: "Standalone Pages"
+    folder: "standalone-pages"
+    slug: "{{slug}}"
+    file: "standalone-pages/{{slug}}.mdx"
+    create: true
+    extension: mdx
+    format: frontmatter
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "SEO Meta Title",
+          name: "metaTitle",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "SEO Meta Description",
+          name: "metaDesc",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Social Image",
+          name: "socialImage",
+          widget: "image",
+          required: false,
+        }
+      - { label: "Body", name: "body", widget: "markdown", default: "markdown" }
+
   - name: "posts" # Used in routes, id.: /admin/collections/:slud/edit
     label: "Posts" # Used in UI
     label_singular: "Post" # Used in UI
@@ -340,72 +395,3 @@ collections: # A list of collections the CMS should be able to edit
               - { label: "Date", name: "date", widget: "date" }
               - { label: "Image", name: "image", widget: "image" }
               - { label: "File", name: "file", widget: "file" }
-
-  - label: "Globals"
-    name: "globals"
-    files:
-      - label: "Site Copy"
-        name: "site_copy"
-        delete: false
-        create: true
-        file: "_data/copy.json"
-        fields:
-          - { label: "Headline", name: "headline", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "string" }
-  - name: "Photos"
-    label: "Photos"
-    folder: "photos"
-    slug: "{{slug}}"
-    file: "photos/{{slug}}.mdx"
-    create: true
-    extension: mdx
-    format: frontmatter
-    fields:
-      - { label: "Title", name: "title", widget: "string", required: false }
-      - { label: "Image", name: "image", widget: "image" }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
-  - name: "Standalone Pages"
-    label: "Standalone Pages"
-    folder: "standalone-pages"
-    slug: "{{slug}}"
-    file: "standalone-pages/{{slug}}.mdx"
-    create: true
-    extension: mdx
-    format: frontmatter
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - {
-          label: "SEO Meta Title",
-          name: "metaTitle",
-          widget: "string",
-          required: false,
-        }
-      - {
-          label: "SEO Meta Description",
-          name: "metaDesc",
-          widget: "string",
-          required: false,
-        }
-      - {
-          label: "Social Image",
-          name: "socialImage",
-          widget: "image",
-          required: false,
-        }
-      - { label: "Body", name: "body", widget: "markdown", default: "markdown" }
-  - name: "Boolean"
-    label: "Boolean"
-    folder: "boolean"
-    slug: "{{slug}}"
-    file: "boolean/{{slug}}.mdx"
-    create: true
-    extension: mdx
-    format: frontmatter
-    fields:
-      - { label: "Title", name: "title", widget: "string", required: true }
-      - {
-          label: "Complete",
-          name: "complete",
-          widget: "boolean",
-          default: true,
-        }

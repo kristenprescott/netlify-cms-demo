@@ -12,6 +12,7 @@ const CMS = dynamic(
   () =>
     import("netlify-cms-app").then((CMS) => {
       CMS.init({ CMS_CONFIG });
+      CMS.registerWidget("kitchenSink", control, [preview], [schema]);
     }),
   { ssr: false, loading: Loading }
 );
