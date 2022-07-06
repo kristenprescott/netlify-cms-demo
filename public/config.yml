@@ -5,7 +5,35 @@ backend:
 publish_mode: editorial_workflow
 media_folder: "public/images"
 public_folder: "/images"
-collections:
+collections: # A list of collections the CMS should be able to edit
+  - name: "posts" # Used in routes, id.: /admin/collections/:slud/edit
+    label: "Posts" # Used in UI
+    label_singular: "Post" # Used in UI
+    description: >
+      The description is a great place for tone setting, high level info, and editing guidelines specific to the collection.
+    folder: "posts"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} -- {{year}}/{{month}}/{{day}}"
+    create: true # Allow users to create new documents in this collection
+    view_filters:
+      - label: Posts with Index
+    field: title
+    pattern: "Post #"
+  - label: Posts without Index
+    field: title
+    pattern: front matter Posts
+  - label: Drafts
+    field: draft
+    pattern: true
+    view_groups:
+      - label: Year
+        field: date
+        pattern: \d{4}
+      - label: Drafts
+        field: draft
+    fields: # The fields each document in this collection has
+      - { label: "Title", name: "title", widget: "string", tagname: "h1" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
   - label: "Globals"
     name: "globals"
     files:
