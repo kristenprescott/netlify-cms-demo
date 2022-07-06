@@ -1,6 +1,6 @@
 import { useEffect, Fragment } from "react";
 import Head from "next/head";
-import copy from "@data/copy.json";
+// import copy from "@data/copy.json";
 
 const Home = () => {
   useEffect(() => {
@@ -22,8 +22,8 @@ const Home = () => {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Head>
       <main>
-        <h1>{copy.headline}</h1>
-        <h2>{copy.tagline}</h2>
+        {/* <h1>{copy.headline}</h1> */}
+        {/* <h2>{copy.tagline}</h2> */}
       </main>
     </Fragment>
   );
