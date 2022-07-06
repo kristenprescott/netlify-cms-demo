@@ -14,10 +14,11 @@ const Home = () => {
       });
     }
   }, []);
+
   return (
     <Fragment>
       <Head>
-        <title>Netlify CMS && Next.js</title>
+        <title>Netlify CMS DEMO</title>
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Head>
       <main>
@@ -44,3 +45,6 @@ export default Home;
 //     }
 // `,
 //   }}></script>
+
+// https://preeminent-trifle-d4a156.netlify.app/#invite_token=0GS5I5tdiaLS0YkLW3f3kw
+// Not Found - Request ID: 01G7A9TPH89R1NZ3AT1G87W4G0
