@@ -18,7 +18,7 @@ collections:
           - { label: "Headline", name: "headline", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "string" }
   - name: "Photos"
-    label: "Photoz"
+    label: "Photos"
     folder: "photos"
     slug: "{{slug}}"
     file: "photos/{{slug}}.mdx"
@@ -26,7 +26,7 @@ collections:
     extension: mdx
     format: frontmatter
     fields:
-      - { label: "Title", name: "title", widget: "string", required: false }
+      - { label: "Title", name: "title", widget: "string", required: true }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown", required: false }
   - name: "Standalone Pages"
